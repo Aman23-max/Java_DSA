@@ -120,7 +120,7 @@ public class LinkedList {
         }
         if(temp.data == key) return i;  //key found
         i++;
-        return recSearch(key, temp.next);
+        return recSearch(key, temp.next); 
     }
 
     public static void main(String[] args) {
