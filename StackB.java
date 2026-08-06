@@ -37,7 +37,6 @@ public class StackB {
     //     //     return list.get(list.size()-1);
     //     // }
 
-
     //     // Stack using LinkedList
     //     // static Node head = null;
     //     // public static boolean isEmpty() {
@@ -155,9 +154,15 @@ public class StackB {
             s.push(i);
         }
 
+        //print nxtGreater arr
         for (int nxtGtr : nxtGreater) {
             System.out.print(nxtGtr + " ");
         }
+
+        //next Greater Right
+        //next Greater Left
+        //next Smaller Right
+        //next Smaller Left
     }
 
     public static boolean isValid(String str) { //O(n)
