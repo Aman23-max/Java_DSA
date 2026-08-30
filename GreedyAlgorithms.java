@@ -2,10 +2,10 @@
 // import java.util.Arrays;
 // import java.util.Collections;
 // import java.util.Comparator;
-import java.util.*;
+// import java.lang.reflect.Array;
 
 public class GreedyAlgorithms {
-    // Activity Selection Code
+    // // Activity Selection Code
     // public static void main(String args[]) {
     //     int start[] = {1, 3, 0, 5, 8, 5};
     //     int end[] = {2, 4, 6, 7, 9, 9};
@@ -18,8 +18,9 @@ public class GreedyAlgorithms {
     //     }
 
     //     //lambda function -> shortform
+    //     //in java, Comparator is an interface for sorting Java Objects.
     //     Arrays.sort(activities, Comparator.comparingDouble(o -> o[2]));
-    //     Arrays.sort(intervals, (a, b) -> Integer.compare(a[2], b[2]));
+    //     // Arrays.sort(activities, (a, b) -> Integer.compare(a[2], b[2]));
 
     //     //end time basis sorted
     //     int maxAct = 0;
@@ -39,32 +40,50 @@ public class GreedyAlgorithms {
     //     }
 
     //     System.out.println("max activities = " + maxAct);
-    //     for (int index : ans) {
-    //         System.out.print("A" + index + " ");
+    //     for (int el : ans) {
+    //         System.out.print("A"+el+" ");
     //     }
     // }
 
 
-    // Fractional Knapsack Code
+    // // Fractional Knapsack Code
     // public static void main(String[] args) {
     //     int val[] = {60, 100, 120};
     //     int weight[] = {10, 20, 30};
-    //     int n = val.length;
     //     int w = 50;
-    //     Integer ratio[] = new Integer[val.length];
 
-    //     for(int i=0; i<n; i++) {
-    //         ratio[i] = val[i]/weight[i];
-    //     }
-    //     Arrays.sort(ratio, Collections.reverseOrder());
+    //     double ratio[][] = new double[val.length][2];
+    //     // 0th col => idx; 1st col => ratio
 
-    //     for(int i=n-1; i>=0; i--) {
+    //     for(int i=0; i<val.length; i++) {
+    //         ratio[i][0] = i;
+    //         ratio[i][1] = val[i]/(double)weight[i];
     //     }
+
+    //     //ascending order
+    //     Arrays.sort(ratio, Comparator.comparingDouble(o -> o[1]));
+
+    //     int capacity = w;
+    //     int finalVal = 0;
+    //     for(int i=ratio.length-1; i>=0; i--) {
+    //         int idx = (int)ratio[i][0];
+    //         if (capacity >= weight[idx]) { //include full item
+    //             finalVal += val[idx];
+    //             capacity -= weight[idx];
+    //         } else {
+    //             //include fractional item
+    //             finalVal += (ratio[i][1] * capacity);
+    //             capacity = 0;
+    //             break;
+    //         }
+    //     }
+
+    //     System.out.println("final value = " + finalVal);
     // }
 
 
-    // Minimum Sum Absolute Difference Pairs
-    // public static void main(String[] args) {
+    // // Minimum Sum Absolute Difference Pairs
+    // public static void main(String[] args) { //O(nlogn)
     //     int A[] = {4, 1, 8, 7};
     //     int B[] = {2, 3, 6, 5};
 
@@ -80,14 +99,14 @@ public class GreedyAlgorithms {
     // }
 
 
-    // Maximum Length Chain of Pairs
-    // public static void main(String[] args) {
+    // // Maximum Length Chain of Pairs
+    // public static void main(String[] args) { //O(nlogn)
     //     int pairs[][] = {{5, 24}, {39, 60}, {5, 28}, {27, 40}, {50, 90}};
 
     //     Arrays.sort(pairs, Comparator.comparingDouble(o -> o[1]));
 
     //     int chainLen = 1;
-    //     int chainEnd = pairs[0][1];
+    //     int chainEnd = pairs[0][1]; //Last selected pair end //chain end
 
     //     for(int i=1; i<pairs.length; i++) {
     //         if(pairs[i][0] > chainEnd) {
@@ -100,50 +119,110 @@ public class GreedyAlgorithms {
     // }
 
 
-    // public String largestNumber(int[] nums) {
-    //     //convert int to string array 
-    //     String strNums[] = new String[nums.length];
-    //     for(int i=0; i<nums.length; i++) {
-    //         strNums[i] = String.valueOf(nums[i]);
-    //     }
-    //     //sort strNums by lastDigit of every number
-    //     Arrays.sort(strNums, (a, b) -> (b + a).compareTo(a + b));
+    // // Indian Coins
+    // public static void main(String[] args) {
+    //     Integer coins[] = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
+    //     Arrays.sort(coins, Collections.reverseOrder());
 
-    //     //corner case
-    //     if(strNums[0].equals("0")) {
-    //         return "0";
-    //     }
-    //     //combine into single string
-    //     StringBuilder sb = new StringBuilder();
-    //     for(String val : strNums) {
-    //         sb.append(val);
-    //     }
+    //     int amount = 590;
+    //     int countOfCoins = 0;
+    //     ArrayList<Integer> ans = new ArrayList<>();
 
-    //     return sb.toString();
+    //     for(int i=0; i<coins.length; i++) {
+    //         if(coins[i] <= amount) {
+    //             while (coins[i] <= amount) {
+    //                 countOfCoins++;
+    //                 ans.add(coins[i]);
+    //                 amount -= coins[i];
+    //             }
+    //         }
+    //     }
+    //     System.out.println("total (min) coins used = " + countOfCoins);
+
+    //     for(int val : ans) {
+    //         System.out.print(val+" ");
+    //     }
     // }
     
 
-    // Indian Coins
-    public static void main(String[] args) {
-        Integer coins[] = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
-        Arrays.sort(coins, Collections.reverseOrder());
+    // // Job Sequencing Problem
+    // static class Job {
+    //     int deadline, profit, id;
 
-        int amount = 590;
-        int count = 0;
-        ArrayList<Integer> ans = new ArrayList<>();
+    //     public Job (int i, int d, int p) {
+    //         id = i;
+    //         deadline = d;
+    //         profit = p;
+    //     }
+    // }
+    // public static void main(String[] args) {
+    //     int jobInfo[][] = {{4, 20}, {1, 10}, {1, 40}, {1, 30}};
 
-        for(int i=0; i<coins.length; i++) {
-            if(coins[i] <= amount) {
-                while (coins[i] <= amount) {
-                    count++;
-                    ans.add(coins[i]);
-                    amount -= coins[i];
-                }
-            }
-        }
-        System.out.println("Total num of coins/notes are " + count);
-        for (int val : ans) {
-            System.out.print(val + " ");
-        }
-    }
+    //     ArrayList<Job> jobs = new ArrayList<>();
+
+    //     for (int i = 0; i < jobInfo.length; i++) {
+    //         jobs.add(new Job(i, jobInfo[i][0], jobInfo[i][1]));
+    //     }
+
+    //     // Objects -> sort
+    //     Collections.sort(jobs, (obj1, obj2) -> obj2.profit-obj1.profit);
+    //     // descending order of profit
+
+    //     ArrayList<Integer> seq = new ArrayList<>();
+    //     int time = 0;
+    //     for (int i = 0; i < jobs.size(); i++) {
+    //         Job curr = jobs.get(i);
+    //         if (curr.deadline > time) {
+    //             seq.add(curr.id);
+    //             time++;
+    //         }
+    //     }
+
+    //     // print seq
+    //     System.out.println("max jobs = " + seq.size());
+    //     for (int i = 0; i < seq.size(); i++) {
+    //         System.out.print(seq.get(i)+" ");
+    //     }
+    // }
+
+    
+    // // Chocolate Problem
+    // public static void main(String[] args) {
+    //     int n = 4, m = 6;
+    //     Integer costVer[] = {2, 1, 3, 1, 4};
+    //     Integer costHor[] = {4, 1, 2};
+
+    //     Arrays.sort(costVer, Comparator.reverseOrder());
+    //     Arrays.sort(costHor, Comparator.reverseOrder());
+
+    //     int h = 0, v = 0;
+    //     int hp = 1, vp = 1;
+    //     int cost = 0;
+
+    //     while(h < costHor.length && v < costVer.length) {
+    //         if(costVer[v] <= costHor[h]) {
+    //             cost += (costHor[h] * vp);
+    //             hp++;
+    //             h++;
+    //         } else {
+    //             cost += (costVer[v] * hp);
+    //             vp++;
+    //             v++;
+    //         }
+    //     }
+
+    //     while(h < costHor.length) {
+    //         cost += (costHor[h] * vp);
+    //         hp++;
+    //         h++;
+    //     }
+
+    //     while(v < costVer.length) {
+    //         cost += (costVer[v] * hp);
+    //         vp++;
+    //         v++;
+    //     }
+
+    //     System.out.println("min cost of cuts = " + cost);
+    // }
 }
