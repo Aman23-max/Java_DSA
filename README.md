@@ -1,75 +1,87 @@
-# 🚀 Data Structures and Algorithms (DSA) Solutions
+# 🚀 Java Data Structures and Algorithms (DSA)
 
-Welcome to my **DSA preparation and practice** repository! This repo serves as a central hub for all the coding challenges, data structure implementations, and algorithm problems I solve across various platforms.
+Welcome to my **DSA preparation and competitive programming** repository! This repo tracks my journey mastering core computer science concepts, optimizing algorithmic efficiency, and solving problems using **Java**.
 
 ## 📌 Repository Overview
-* **Goal:** Master core computer science concepts and ace technical interviews.
-* **Languages Used:** C++ / Java / Python / JavaScript *(Modify as needed)*
-* **Platforms Covered:** LeetCode, HackerRank, CodeStudio, GeeksforGeeks
+* **Primary Language:** Java (JDK 17+)
+* **Goal:** Master problem-solving patterns and ace technical interviews.
+* **Target Platforms:** LeetCode, GeeksforGeeks (GFG), and Codeforces.
 
 ---
 
 ## 📂 Repository Structure
 
-The repository is organized by data structure and algorithmic paradigm for easy navigation:
+The repository is organized by data structure, algorithmic paradigm, and competitive programming contests:
 
 ```text
-├── Data Structures/
-│   ├── Arrays/
-│   ├── Linked Lists/
-│   ├── Stacks & Queues/
-│   ├── Trees & Graphs/
-│   └── Hashing/
+├── Data-Structures/
+│   ├── Arrays-&-Hashing/
+│   ├── Linked-Lists/
+│   ├── Stacks-&-Queues/
+│   ├── Trees-&-Graphs/
+│   └── Tries-&-Heaps/
 ├── Algorithms/
-│   ├── Sorting & Searching/
-│   ├── Recursion & Backtracking/
-│   ├── Dynamic Programming/
-│   └── Greedy Algorithms/
-└── Contests/
-    └── LeetCode Weekly/
+│   ├── Searching-&-Sorting/
+│   ├── Recursion-&-Backtracking/
+│   ├── Dynamic-Programming/
+│   └── Greedy-Algorithms/
+└── Platforms/
+    ├── LeetCode/
+    ├── GeeksforGeeks/
+    └── Codeforces/
 ```
 
 ---
 
 ## 📊 Progress Tracker
 
-| Topic | Problems Solved | Status |
+| Platform | Problems Solved | Profile Link |
 | :--- | :---: | :--- |
-| **Arrays & Hashing** | 15 | 🟡 In Progress |
-| **Linked Lists** | 10 | 🟢 Completed |
-| **Trees & Graphs** | 5 | 🔴 Not Started |
-| **Dynamic Programming** | 0 | 🔴 Not Started |
+| 🟡 **LeetCode** | `00` / 150 (NeetCode) | [My LeetCode Profile](https://leetcode.com) |
+| 🟢 **GeeksforGeeks** | `00` | [My GFG Profile](https://geeksforgeeks.org) |
+| 🔵 **Codeforces** | `00` | [My Codeforces Profile](https://codeforces.com) |
 
 ---
 
-## 🛠️ How to Use This Repo
+## 🛠️ How to Run the Code Locally
 
 ### Prerequisites
-Make sure you have the respective compiler or runtime environment installed (e.g., `GCC` for C++, `JDK` for Java, or `Python 3`).
+Ensure you have the **Java Development Kit (JDK)** installed on your machine. You can check your version using:
+```bash
+java -version
+```
 
-### Running a Solution
+### Execution Steps
 1. **Clone** the repository:
    ```bash
    git clone https://github.com
    ```
-2. Navigate to the problem directory and run the file:
+2. Navigate to the specific problem file:
    ```bash
-   # Example for Python
-   python Algorithms/Sorting/merge_sort.py
+   cd Platforms/LeetCode/
+   ```
+3. **Compile** and **run** the Java file:
+   ```bash
+   javac TwoSum.java
+   java TwoSum
    ```
 
 ---
 
-## 📈 Useful Resources & Cheat Sheets
-* [Big-O Cheat Sheet](https://bigocheatsheet.com) - Time and space complexity reference.
-* [NeetCode Roadmap](https://neetcode.io) - Structured DSA learning path.
+## 📑 Core Java Collections Cheat Sheet
+Quick reference for time complexities of standard Java collections used in this repo:
+
+* **ArrayList:** `O(1)` access, `O(n)` insertions/deletions.
+* **HashMap / HashSet:** `O(1)` average time for search, insert, and delete.
+* **PriorityQueue (Min/Max Heap):** `O(log n)` for insertion and deletion, `O(1)` for retrieval.
+* **LinkedList (Queue/Deque):** `O(1)` insertion and deletion at both ends.
 
 ---
 
 ## 🤝 Contributing
-If you find a more optimal solution, feel free to open an issue or submit a pull request!
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/OptimalSolution`)
-3. Commit your Changes (`git commit -m 'Add optimal solution for Problem X'`)
-4. Push to the Branch (`git push origin feature/OptimalSolution`)
-5. Open a Pull Request
+If you notice a way to optimize the time or space complexity of an existing solution, contributions are welcome!
+1. Fork the Project.
+2. Create your Feature Branch (`git checkout -b feature/OptimalSolution`).
+3. Commit your Changes (`git commit -m 'Optimize TwoSum solution using HashMap'`).
+4. Push to the Branch (`git push origin feature/OptimalSolution`).
+5. Open a Pull Request.
